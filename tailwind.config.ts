@@ -28,6 +28,17 @@ export default {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
+				eticket: {
+					50: '#f0f6ff',
+					100: '#e0ecff', 
+					200: '#c0dcff',
+					300: '#80bcff',
+					400: '#3B82F6', // blue main
+					500: '#1A2C5B', // dark blue
+					600: '#1e40af',
+					700: '#1e3a8a',
+					accent: '#F59E0B', // orange accent
+				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
