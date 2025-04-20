@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Clock, MapPin, Share2, Users, TicketIcon, Info, ArrowLeft } from "lucide-react";
@@ -6,6 +5,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EventsList } from "@/components/events/EventsList";
+import Map from "@/components/Map";
 import { MOCK_EVENTS } from "@/constants";
 import { Event } from "@/types";
 
@@ -16,18 +16,14 @@ const EventDetail = () => {
   const [selectedTicketCategory, setSelectedTicketCategory] = useState("");
   const [quantity, setQuantity] = useState(1);
 
-  // Dans une implémentation réelle, ces données viendraient de l'API Supabase
   useEffect(() => {
-    // Trouver l'événement actuel
     const currentEvent = MOCK_EVENTS.find(event => event.id === id) || null;
     setEvent(currentEvent);
     
-    // Si l'événement est trouvé, définir la catégorie de ticket par défaut
     if (currentEvent && currentEvent.ticketCategories.length > 0) {
       setSelectedTicketCategory(currentEvent.ticketCategories[0].id);
     }
 
-    // Trouver des événements similaires (même catégorie)
     if (currentEvent) {
       const similar = MOCK_EVENTS.filter(
         e => e.id !== id && e.category === currentEvent.category
@@ -46,7 +42,6 @@ const EventDetail = () => {
     );
   }
 
-  // Format date for display
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("fr-FR", {
@@ -57,7 +52,6 @@ const EventDetail = () => {
     }).format(date);
   };
 
-  // Format time for display
   const formatTime = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("fr-FR", {
@@ -74,8 +68,6 @@ const EventDetail = () => {
   const totalPrice = ticketPrice * quantity;
 
   const handleBuyTickets = () => {
-    // Dans une implémentation réelle, rediriger vers la page de checkout
-    // ou afficher un modal de paiement
     console.log("Achat de billets:", {
       event,
       categoryId: selectedTicketCategory,
@@ -86,7 +78,6 @@ const EventDetail = () => {
 
   return (
     <Layout>
-      {/* Hero section */}
       <div className="bg-gradient-to-b from-eticket-500 to-eticket-600 pt-8 pb-12 text-white">
         <div className="container px-4 mx-auto">
           <div className="mb-6">
@@ -132,10 +123,8 @@ const EventDetail = () => {
         </div>
       </div>
 
-      {/* Main content */}
       <div className="container px-4 py-8 mx-auto">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left column - Event details */}
           <div className="lg:w-2/3">
             <div className="mb-8">
               <img 
@@ -206,17 +195,13 @@ const EventDetail = () => {
                   </p>
                   
                   {!event.isOnline && (
-                    <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Carte de localisation</p>
-                      {/* Dans une implémentation réelle, intégrer une carte */}
-                    </div>
+                    <Map address={event.location} />
                   )}
                 </div>
               </TabsContent>
             </Tabs>
           </div>
           
-          {/* Right column - Buy tickets */}
           <div className="lg:w-1/3">
             <div className="bg-white p-6 rounded-lg shadow-sm sticky top-20">
               <h2 className="text-xl font-bold mb-4 text-eticket-500">Réserver vos billets</h2>
@@ -296,7 +281,6 @@ const EventDetail = () => {
           </div>
         </div>
         
-        {/* Similar events */}
         {similarEvents.length > 0 && (
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-6 text-eticket-500">Événements similaires</h2>
