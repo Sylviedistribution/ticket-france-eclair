@@ -1,4 +1,3 @@
-
 // Event categories
 export const EVENT_CATEGORIES = [
   "Conférence",
@@ -134,7 +133,7 @@ export const MOCK_EVENTS = [
     location: "Galerie Nationale, Brazzaville",
     isOnline: false,
     description: "Découvrez les œuvres de 20 artistes émergents qui repoussent les frontières de l'art contemporain africain.",
-    imageUrl: "https://images.unsplash.com/photo-1531243132304-62266698bc05?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    imageUrl: "https://images.unsplash.com/photo-1550185011-8abb52a4a9f4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     capacity: 300,
     ticketPrice: 5000,
     organizerId: "org4",
