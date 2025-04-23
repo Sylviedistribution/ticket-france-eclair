@@ -38,4 +38,3 @@ export const NAV_LINKS = {
     { label: "Notifications", href: "/admin/notifications" },
   ],
 };
-

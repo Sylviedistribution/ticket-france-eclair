@@ -19,6 +19,14 @@ import CreateEvent from "./pages/organizer/CreateEvent";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Refund from "./pages/Refund";
+import CookiesPage from "./pages/Cookies";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminEvents from "./pages/admin/AdminEvents";
+import AdminTransactions from "./pages/admin/AdminTransactions";
 
 const queryClient = new QueryClient();
 
@@ -41,8 +49,16 @@ const App = () => (
           <Route path="/organizer/events" element={<OrganizerEvents />} />
           <Route path="/organizer/events/create" element={<CreateEvent />} />
           <Route path="/organizer/profile" element={<OrganizerProfile />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/events" element={<AdminEvents />} />
+          <Route path="/admin/transactions" element={<AdminTransactions />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/refund" element={<Refund />} />
+          <Route path="/cookies" element={<CookiesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
