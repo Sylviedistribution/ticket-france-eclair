@@ -27,7 +27,7 @@ const EventDetail = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/events/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/events/${id}`);
         setEvent(response.data.data);
 
         // Initialiser les quantités à 0 pour chaque catégorie

@@ -17,7 +17,7 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/events/"); // Route API pour récupérer les événements
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/events/`); // Route API pour récupérer les événements
         const events = Array.isArray(response.data.data) ? response.data.data : [];
         setAllEvents(events); // ✅ mise à jour du state
       } catch (error) {

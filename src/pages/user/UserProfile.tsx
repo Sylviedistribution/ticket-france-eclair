@@ -100,7 +100,7 @@ const UserProfile = () => {
       }
      
       await axios.post(
-        `http://localhost:8000/api/user/update/`,
+       `${import.meta.env.VITE_API_URL}/user/update/`,
         
         form,
         {

@@ -36,7 +36,7 @@ export default function Login() {
       setLoading(true);
       
       const response = await axios.post(
-        'http://localhost:8000/api/login',
+        `${import.meta.env.VITE_API_URL}/login`,
         {
           email, // utilise directement email du useState
           password, // utilise directement password du useState

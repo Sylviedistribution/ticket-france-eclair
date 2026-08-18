@@ -16,7 +16,7 @@ const Index = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/events/");
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/events/`);
         const data = Array.isArray(response.data.data) ? response.data.data : [];
         setEvents(data);
         console.log("Événements reçus :", data);

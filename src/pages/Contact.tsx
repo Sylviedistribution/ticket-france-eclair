@@ -17,7 +17,7 @@ const Contact = () => {
     };
   
     try {
-      const res = await fetch("http://localhost:8000/api/contact", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
         method: "POST",
         headers: {
           Accept: 'application/json',
