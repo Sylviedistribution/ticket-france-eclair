@@ -4,20 +4,20 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/ticket-france-eclair/' : '/',
+  base: "/",
 
   server: {
     host: "::",
     port: 8080,
     proxy: {
-      '/api': 'http://127.0.0.1:8000',
-      '/sanctum': 'http://127.0.0.1:8000',
+      "/api": "http://127.0.0.1:8000",
+      "/sanctum": "http://127.0.0.1:8000",
     },
   },
 
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
 
   resolve: {
